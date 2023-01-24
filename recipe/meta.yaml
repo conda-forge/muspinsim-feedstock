@@ -1,5 +1,5 @@
 {% set name = "muspinsim" %}
-{% set version = "1.2.0" %}
+{% set version = "2.0.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,26 +7,41 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/muspinsim-{{ version }}.tar.gz
-  sha256: 5ca8ceb3ac9b1633e9c274e117fc4854b6da5443ff2362a609f0a2fab676250c
+  sha256: 88aa891d01325fe347e3859ffd59fa0ee31fd9ae3750ae3a701aff5483e973c7
 
 build:
+  number: 0
+  skip: True  # [py<38]
+  script_env:
+    - MUSPINSIM_WITH_OPENMP=1
   entry_points:
     - muspinsim = muspinsim.__main__:main
     - muspinsim.mpi = muspinsim.__main__:main_mpi
-  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
 
 requirements:
+  build:
+    - llvm-openmp  # [osx]
+    - libgomp      # [linux]
+    - {{ compiler('cxx') }}
   host:
     - pip
-    - python >=3.6
+    - python
+    - numpy
+    - scipy
+    - cython
+    - pybind11
+    - qutip
   run:
     - lark
-    - numpy
-    - python >=3.6
+    - {{ pin_compatible('numpy') }}
+    - python
     - scipy
     - soprano
+    - qutip
+    - pybind11
+    - cython
+    - ase
 
 test:
   imports:
