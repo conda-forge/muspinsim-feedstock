@@ -50,8 +50,10 @@ test:
     - pip check
     - muspinsim --help
     - muspinsim.mpi --help
+    - pytest --pyargs muspinsim
   requires:
     - pip
+    - pytest
 
 about:
   home: https://github.com/muon-spectroscopy-computational-project/muspinsim
