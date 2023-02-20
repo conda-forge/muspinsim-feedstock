@@ -1,5 +1,5 @@
 {% set name = "muspinsim" %}
-{% set version = "2.0.2" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/muspinsim-{{ version }}.tar.gz
-  sha256: 886dce228e6ef85df577776b4c0bd4a2fd93023412a8f9c463409620b749feaf
+  sha256: 388337446b67de740896f03c3b9413fb16c75262c2583cac66f50dd1351f6a9c
 
 build:
   number: 1
@@ -17,6 +17,7 @@ build:
   entry_points:
     - muspinsim = muspinsim.__main__:main
     - muspinsim.mpi = muspinsim.__main__:main_mpi
+    - muspinsim-gen = muspinsim.tools.generator:main
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -55,6 +56,7 @@ test:
     - pip check
     - muspinsim --help
     - muspinsim.mpi --help
+    - muspinsim-gen --help
     - pytest --pyargs muspinsim
   requires:
     - pip
