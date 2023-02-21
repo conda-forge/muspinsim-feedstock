@@ -10,7 +10,7 @@ source:
   sha256: 388337446b67de740896f03c3b9413fb16c75262c2583cac66f50dd1351f6a9c
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py<38]
   script_env:
     - MUSPINSIM_WITH_OPENMP=1
