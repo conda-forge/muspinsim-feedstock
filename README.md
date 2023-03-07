@@ -1,11 +1,11 @@
-About muspinsim
-===============
+About muspinsim-feedstock
+=========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/muspinsim-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/muon-spectroscopy-computational-project/muspinsim
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/muspinsim-feedstock/blob/main/LICENSE.txt)
 
 Summary: Full quantum simulation of muon experiments
 
