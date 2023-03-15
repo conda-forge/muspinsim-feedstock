@@ -1,5 +1,5 @@
 {% set name = "muspinsim" %}
-{% set version = "2.2.0" %}
+{% set version = "2.2.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/muspinsim-{{ version }}.tar.gz
-  sha256: 746fe90ba703a6ab6ce4e56f8f05cec0b77ccb4d30ab56d4d17d2cb57935b192
+  sha256: 7ad4b6048c588bec54120d7e57029862e5d4406d62466367a5b9cc27704ed005
 
 build:
   number: 0
